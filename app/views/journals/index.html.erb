@@ -2,13 +2,38 @@
 
 <h1>Journals</h1>
 
-<div id="journals">
-  <% @journals.each do |journal| %>
-    <%= render journal %>
-    <p>
-      <%= link_to "Show this journal", journal %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Journal</th>
+    <th scope="col">Journal Link</th>
+    <th scope="col">Read</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @journals.each do |journal| %>
+    <tr>
+      <td><%= journal.journal_name %></td>
+      <td><%= journal.journal_link %></td>
+      <td><%= journal.read %></td>
+      <td><%= link_to "Show", journal %> <%= link_to "Edit", edit_journal_path(journal) %> <%= link_to "Delete", journal, data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      }  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--P<div id="journals">-->
+  <%# @journals.each do |journal| %>
+    <%#= render journal %>
+<!--    <p>-->
+      <%#= link_to "Show this journal", journal %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
 
 <%= link_to "New journal", new_journal_path %>
