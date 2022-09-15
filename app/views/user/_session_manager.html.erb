@@ -1,0 +1,23 @@
+<% if current_user %>
+<!--<a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--  Users-->
+<!--</a>-->
+<!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--  <li><%#= link_to 'View All', journals_path, class:"dropdown-item" %></li>-->
+<!--  <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--  <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--  <li><hr class="dropdown-divider"></li>-->
+<!--  <li><%#= link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item" %></li>-->
+<!--  <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+  <li class="nav-item">
+    <%= link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link active" %>
+  </li>
+<!--</ul>-->
+<% else %>
+  <li class="nav-item">
+    <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Log In', new_user_session_path, class:"nav-link active" %>
+  </li>
+<% end %>
