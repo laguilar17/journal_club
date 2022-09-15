@@ -15,8 +15,10 @@
   <title>JournalClub App</title>
 </head>
 <body>
-
-<%= render 'home/header' %>
+  <header>
+    <%= render 'home/header' %>
+    <%= render 'home/alerts' %>
+  </header>
 <div class ="container">
   <br>
   <%= yield %>
