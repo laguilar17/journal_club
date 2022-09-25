@@ -17,13 +17,22 @@ RSpec.describe "/journals", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Journal. As you add validations to Journal, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+  let(:valid_attributes) do {
+    'journal_name' => "How to do complex surgery on geriatric patients"
   }
+  end
 
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
+
+  context "When signed in as user" do
+    before do
+      @user = User.create(email: "test@test.com", password: "test1234")
+      sign_in @user
+    end
+  end
+
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -86,9 +95,10 @@ RSpec.describe "/journals", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+      let(:new_attributes) do {
+        'journal_name' => "Preventing bacterial infections in newborns"
       }
+      end
 
       it "updates the requested journal" do
         journal = Journal.create! valid_attributes
