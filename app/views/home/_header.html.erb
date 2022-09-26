@@ -10,18 +10,6 @@
           <%= link_to 'Home', root_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'All Journals', journals_path, class:"nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Add Journal', new_journal_path, class:"nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Contacts', home_contacts_path, class:"nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
           <%= render 'user/session_manager' %>
         </li>
       </ul>
