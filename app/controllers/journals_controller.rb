@@ -1,6 +1,6 @@
 class JournalsController < ApplicationController
   before_action :set_journal, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /journals or /journals.json
   def index
     @journals = Journal.all
