@@ -18,7 +18,9 @@ RSpec.describe "/journals", type: :request do
   # Journal. As you add validations to Journal, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do {
-    'journal_name' => "How to do complex surgery on geriatric patients"
+    'journal_name' => "How to do complex surgery on geriatric patients",
+    'journal_link' => "www.cooljournal.com",
+    'read' => false
   }
   end
 
@@ -31,12 +33,11 @@ RSpec.describe "/journals", type: :request do
       @user = User.create(email: "test@test.com", password: "test1234")
       sign_in @user
     end
-  end
-
 
   describe "GET /index" do
     it "renders a successful response" do
-      Journal.create! valid_attributes
+      # Journal.create! valid_attributes
+      create(:journal, :valid)
       get journals_url
       expect(response).to be_successful
     end
@@ -137,5 +138,6 @@ RSpec.describe "/journals", type: :request do
       delete journal_url(journal)
       expect(response).to redirect_to(journals_url)
     end
+  end
   end
 end
