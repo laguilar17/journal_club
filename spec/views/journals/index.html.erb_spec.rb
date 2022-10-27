@@ -20,6 +20,6 @@ RSpec.describe "journals/index", type: :view do
     render
     assert_select "tr>td", text: "Journal Name".to_s, count: 2
     assert_select "tr>td", text: "Journal Link".to_s, count: 2
-    assert_select "tr>td", text: false.to_s, count: 2
+    assert_select "tr>td", text: "No", count: 2
   end
 end

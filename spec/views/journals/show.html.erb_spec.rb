@@ -13,6 +13,6 @@ RSpec.describe "journals/show", type: :view do
     render
     expect(rendered).to match(/Journal Name/)
     expect(rendered).to match(/Journal Link/)
-    expect(rendered).to match(/false/)
+    expect(rendered).to match(/Unread/)
   end
 end

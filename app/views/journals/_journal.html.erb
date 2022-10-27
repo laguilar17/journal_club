@@ -1,24 +1,5 @@
-<!--<div id="<%#= dom_id journal %>">-->
-<!--  <p>-->
-<!--    <strong>Journal Name:</strong>-->
-    <%#= journal.journal_name %>
-<!--  </p>-->
-
-<!--  <p>-->
-<!--    <strong>Journal Link:</strong>-->
-    <%#= journal.journal_link %>
-<!--  </p>-->
-
-<!--  <p>-->
-<!--    <strong>Read:</strong>-->
-    <%#= journal.read %>
-<!--  </p>-->
-
-<!--</div>-->
-
 <div id="<%= dom_id journal %>" class="container bg-info bg-gradient p-5">
-<!--    <h1 class="display-4 fw-bold">Welcome to my Website</h1>-->
-  <h1><%= journal.journal_name %> | <%= journal.read %></h1>
+  <h1><%= journal.journal_name %> | <%= journal.read ? "Read" : "Unread" %></h1>
     <hr>
     <p><%= journal.journal_link %></p>
 </div>

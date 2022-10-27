@@ -1,4 +1,10 @@
-<h1>Journals</h1>
+<%if @filter == "read"%>
+  <h1>Read Journals</h1>
+<%elsif @filter == "unread"%>
+  <h1>Unread Journals</h1>
+<%else%>
+  <h1>Journals</h1>
+<%end%>
 
 <table class="table table-hover">
   <thead class ="table-primary">
@@ -15,7 +21,7 @@
     <tr>
       <td><%= journal.journal_name %></td>
       <td><%= journal.journal_link %></td>
-      <td><%= journal.read %></td>
+      <td><%= journal.read ? "Yes" : "No" %></td>
       <td>
         <%= link_to "Show", journal, class:"btn btn-primary" %>
         <%= link_to "Edit", edit_journal_path(journal), class:"btn btn-warning" %>
@@ -27,14 +33,5 @@
     <% end %>
   </tbody>
 </table>
-
-<!--P<div id="journals">-->
-  <%# @journals.each do |journal| %>
-    <%#= render journal %>
-<!--    <p>-->
-      <%#= link_to "Show this journal", journal %>
-<!--    </p>-->
-  <%# end %>
-<!--</div>-->
 
 <%= link_to "New Journal", new_journal_path %>

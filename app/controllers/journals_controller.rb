@@ -3,7 +3,15 @@ class JournalsController < ApplicationController
   before_action :authenticate_user!
   # GET /journals or /journals.json
   def index
-    @journals = Journal.all
+    if params[:read] == "false"
+      @journals = Journal.where(read: false)
+      @filter = "unread"
+    elsif params[:read] == "true"
+      @journals = Journal.where(read: true)
+      @filter = "read"
+    else
+      @journals = Journal.all
+    end
   end
 
   # GET /journals/1 or /journals/1.json
