@@ -3,6 +3,12 @@
     <%= link_to 'All Journals', journals_path, class:"nav-link active" %>
   </li>
   <li class="nav-item">
+    <%= link_to 'Read Journals', journals_path(read: true), class:"nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Unread Journals', journals_path(read: false), class:"nav-link active" %>
+  </li>
+  <li class="nav-item">
     <%= link_to 'Add Journal', new_journal_path, class:"nav-link active" %>
   </li>
   <li class="nav-item">
